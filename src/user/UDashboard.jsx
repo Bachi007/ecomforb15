@@ -1,9 +1,22 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { getCartByUsername } from "../store/CartSlice";
 
 export default function UDashboard(){
 
     var [username,setUsername]=useState("");
+    var cartitems = useSelector(state => state.cart.cartitems);
+    var dispatch = useDispatch();
+    useEffect(() => {
+
+        var username = localStorage.getItem("userloggedin")
+        dispatch(getCartByUsername(username));
+
+    }, [dispatch])
+
+
+
     var navigate=useNavigate("")
     useEffect(()=>{
         if(!localStorage.getItem("userloggedin")){
@@ -32,11 +45,11 @@ export default function UDashboard(){
                             </li>
                                 <li className="nav-item">
                                     <Link className="nav-link"
-                                     to="/home">Home</Link>
+                                     to="/user/home">Home</Link>
                                 </li>
                                  <li className="nav-item">
                                     <Link className="nav-link"
-                                     to="/add">View Products</Link>
+                                     to="/user/view">View Products</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link"
@@ -44,7 +57,7 @@ export default function UDashboard(){
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link"
-                                     to="/add">Cart</Link>
+                                     to="/user/cart">Cart <span className="badge bg-danger">{cartitems && cartitems.length}</span> </Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link"

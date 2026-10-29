@@ -27,15 +27,15 @@ export default function ADashboard(){
                                
                                 <li className="nav-item">
                                     <Link className="nav-link"
-                                     to="/home">Home</Link>
+                                     to="/admin/home">Home</Link>
                                 </li>
                                  <li className="nav-item">
                                     <Link className="nav-link"
-                                     to="/add">Add Products</Link>
+                                     to="/admin/add">Add Products</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link"
-                                     to="/add">Manage Products</Link>
+                                     to="/admin/manage">Manage Products</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link"

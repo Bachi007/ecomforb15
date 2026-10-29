@@ -13,11 +13,10 @@ export default function Login(){
         console.log(username.current.value);
         console.log(password.current.value)
         var reqpwd=username.current.value.slice(0,3)+"123"
-       console.log(reqpwd)
+       console.log("req pwd is "+reqpwd)
         if(username.current.value=="admin" && password.current.value=="admin123"){
             localStorage.setItem("adminloggedin",username.current.value)
             navigate("/admin/home")
-
         }
        else if(username.current.value!=null && password.current.value==reqpwd){
         localStorage.setItem("userloggedin",username.current.value)  
